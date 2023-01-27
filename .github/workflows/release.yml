@@ -29,10 +29,14 @@ jobs:
       - name: Run a one-line script
         run: echo RELEASE
 
+      - name: Build
+        run: |
+          touch mycustomFile.txt
+          
       - name: "upload"
         run: |
           aws --version
-          aws s3 cp build s3://cdn-library-bucket/build --recursive
+          aws s3 cp mycustomFile.txt s3://cdn-library-bucket/build
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
