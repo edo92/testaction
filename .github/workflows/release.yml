@@ -36,7 +36,7 @@ jobs:
       - name: "upload"
         run: |
           aws --version
-          aws s3 cp mycustomFile.txt s3://cdn-library-bucket/build
+          aws s3 cp mycustomFile.txt s3://cdn-library-bucket
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
